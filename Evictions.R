@@ -18,19 +18,18 @@ evicZips <- data.frame(table(residentialEvictiontable_2017$EVICTION_ZIP)) #creat
 colnames(evicZips) <- c('Zip.Code', 'evictions') #rename columns
 
 masterZips <- read.csv("C:/Users/aaron/OneDrive/Documents/Columbia Journalism/Universal Access to Counsel/marshalEvictionData/NYSzips.csv") #master list of every zip code in NYS
-#zipandCounty <- read.csv("C:/Users/aaron/OneDrive/Documents/Columbia Journalism/Universal Access to Counsel/marshalEvictionData/Zip and County.csv")
-#zipandCounty <- zipandCounty[zipandCounty$County.Name %in% c("New York", "Kings", "Bronx", "Queens", "Richmond"),]
-
 masterZips <- merge(masterZips, evicZips, by = "Zip.Code", all.x = TRUE) #merges basted based on common zip codes
+masterZips[is.na(masterZips)] <- 0 # sets all na values equal to zero
 
-
+#Population data by zip code
 zipPops <- read.csv("C:/Users/aaron/OneDrive/Documents/Columbia Journalism/Universal Access to Counsel/marshalEvictionData/New York Population by Zip Code from 2010 U.S. Census.csv") #Imports NYS zip code populations from the U.S. Census
-
 zipPops$Zip.Code <- as.numeric(str_extract(zipPops$Zip.Code, "[0-9]{5}")) #cleans the string so we're just working with the zip code numbers
-
 masterZips <- merge(masterZips, zipPops, by = "Zip.Code", all.x = TRUE) #merges tables based on common zip codes
 
-masterZips[is.na(masterZips)] <- 0 # sets all na values equal to zero
+#Median Household Income
+zipIncome <- read.csv("C:/Users/aaron/OneDrive/Documents/Columbia Journalism/Universal Access to Counsel/marshalEvictionData/medianHouseholdIncomebyZip.csv") #Imports income data
+zipIncome$Zip.Code <- as.numeric(str_extract(zipIncome$Zip.Code, "[0-9]{5}")) #cleans the string so we're just working with the zip code numbers
+masterZips <- merge(masterZips, zipIncome, by = "Zip.Code", all.x = TRUE) #merges tables based on common zip codes
 
 export <- toJSON(masterZips) #converts dataframe to json format
 
