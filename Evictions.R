@@ -31,6 +31,10 @@ zipIncome <- read.csv("C:/Users/aaron/OneDrive/Documents/Columbia Journalism/Uni
 zipIncome$Zip.Code <- as.numeric(str_extract(zipIncome$Zip.Code, "[0-9]{5}")) #cleans the string so we're just working with the zip code numbers
 masterZips <- merge(masterZips, zipIncome, by = "Zip.Code", all.x = TRUE) #merges tables based on common zip codes
 
+zipToNeighborhoods <- read.csv("C:/Users/aaron/OneDrive/Documents/Columbia Journalism/Universal Access to Counsel/marshalEvictionData/NYCzipstoPumatoNeighborhood.csv")
+zipToNeighborhoods$puma10 <- NULL
+masterZips <- merge(masterZips, zipToNeighborhoods, by = "Zip.Code", all.x = TRUE)
+
 masterZips <- masterZips[!duplicated(masterZips),]
 
 export <- toJSON(masterZips) #converts dataframe to json format
