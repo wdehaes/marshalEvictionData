@@ -18,8 +18,7 @@ The map was built in [Mapbox](https://www.mapbox.com/), the data for the layers 
 The data was cleaned and combined in R and JavaScript. We created a map in [Mapbox](https://api.mapbox.com/styles/v1/willemdehaes/cjnro3cjp25wm2spbjt8tabc9.html?fresh=true&title=true&access_token=pk.eyJ1Ijoid2lsbGVtZGVoYWVzIiwiYSI6ImNqbmdqZ2hnYzAzb3ozd3F0aHcxM29idTkifQ.KCJrgwzjDOeW19ps9wyW2Q#10.0/40.713492/-73.897638/0) and used JavaScript and the Mapbox API to build to popups.
 
 ## Authors
-[Aaron Brezel](https://github.com/aaronbrezel) - _clean and data population data, eviction data, NYC zip code data, map layout_
+[Aaron Brezel](https://github.com/aaronbrezel) - _clean and data population data, eviction data, NYC zip code data, map layout_  <br  />
 [Willem Dehaes](https://github.com/wdehaes) - _map layers, layout & overlays, neighborhood tabulation data_
 
 Amy Singer provided editorial oversight.
-
