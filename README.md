@@ -13,7 +13,8 @@ This map was made as a companion to a series on Right To Counsel in New York Cit
 The map was built in [Mapbox](https://www.mapbox.com/), the data for the layers came from the following sources
 - Zip Code data came from [Open Data Delaware](https://github.com/OpenDataDE/State-zip-code-GeoJSON) (and the exact [NY State data](https://github.com/OpenDataDE/State-zip-code-GeoJSON/blob/master/ny_new_york_zip_codes_geo.min.json))
 - Neighborhood Tabulation Area data came from [Baruch College](http://guides.newman.baruch.cuny.edu/nyc_data/nbhoods)
--
+
+
 ## Built with
 The data was cleaned and combined in R and JavaScript. We created a map in [Mapbox](https://api.mapbox.com/styles/v1/willemdehaes/cjnro3cjp25wm2spbjt8tabc9.html?fresh=true&title=true&access_token=pk.eyJ1Ijoid2lsbGVtZGVoYWVzIiwiYSI6ImNqbmdqZ2hnYzAzb3ozd3F0aHcxM29idTkifQ.KCJrgwzjDOeW19ps9wyW2Q#10.0/40.713492/-73.897638/0) and used JavaScript and the Mapbox API to build to popups.
 
